@@ -3,10 +3,10 @@
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 
-var summary = BenchmarkRunner.Run<BenchmarkingCollections>();
+var summary = BenchmarkRunner.Run<BenchmarkingCollectionsClass>();
 
 [MemoryDiagnoser(true)]
-public class BenchmarkingCollections
+public class BenchmarkingCollectionsClass
 {
     private IEnumerable<int> GetCollection
         => Enumerable.Range(1, 50);
