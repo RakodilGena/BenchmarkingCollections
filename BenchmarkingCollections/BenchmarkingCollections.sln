@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchmarkingCollections", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchingFrozen", "BenchingFrozen\BenchingFrozen.csproj", "{63210830-4206-4AC9-BD57-4405A5E11417}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchingSomeLinq", "BenchingSomeLinq\BenchingSomeLinq.csproj", "{6F923008-15A5-465B-BEA2-B716E8AAE377}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchValuesBenchmarks", "SearchValuesBenchmarks\SearchValuesBenchmarks.csproj", "{CCED6DED-5495-4E04-AA2C-4A24BAAB523E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{63210830-4206-4AC9-BD57-4405A5E11417}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63210830-4206-4AC9-BD57-4405A5E11417}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63210830-4206-4AC9-BD57-4405A5E11417}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F923008-15A5-465B-BEA2-B716E8AAE377}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F923008-15A5-465B-BEA2-B716E8AAE377}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F923008-15A5-465B-BEA2-B716E8AAE377}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F923008-15A5-465B-BEA2-B716E8AAE377}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCED6DED-5495-4E04-AA2C-4A24BAAB523E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCED6DED-5495-4E04-AA2C-4A24BAAB523E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCED6DED-5495-4E04-AA2C-4A24BAAB523E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCED6DED-5495-4E04-AA2C-4A24BAAB523E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -3,225 +3,228 @@
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 
-var summary = BenchmarkRunner.Run<BenchmarkingCollections>();
+var summary = BenchmarkRunner.Run<BenchmarkingCollections.BenchmarkingCollections>();
 
-[MemoryDiagnoser(true)]
-public class BenchmarkingCollections
+namespace BenchmarkingCollections
 {
-    private IEnumerable<int> GetCollection
-        => Enumerable.Range(1, 50);
+    [MemoryDiagnoser(true)]
+    public class BenchmarkingCollections
+    {
+        private IEnumerable<int> GetCollection
+            => Enumerable.Range(1, 50);
 
-    [Params(2000)] public int RepeatCount;
+        [Params(1, 2000)] public int RepeatCount;
 
-    [Benchmark]
-    public void Array()
-    {
-        int[] collection = GetCollection.ToArray();
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void Array()
         {
-            int sum = 0;
-            foreach (var num in collection)
+            int[] collection = GetCollection.ToArray();
+            for (int i = 0; i < RepeatCount; i++)
             {
-                sum += num;
+                int sum = 0;
+                foreach (var num in collection)
+                {
+                    sum += num;
+                }
             }
         }
-    }
     
-    [Benchmark]
-    public void ArrayAsIEnumerable()
-    {
-        IEnumerable<int> collection = GetCollection.ToArray();
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void ArrayAsIEnumerable()
         {
-            int sum = 0;
-            foreach (var num in collection)
+            IEnumerable<int> collection = GetCollection.ToArray();
+            for (int i = 0; i < RepeatCount; i++)
             {
-                sum += num;
+                int sum = 0;
+                foreach (var num in collection)
+                {
+                    sum += num;
+                }
             }
         }
-    }
     
-    [Benchmark]
-    public void ArrayAsICollection()
-    {
-        ICollection<int> collection = GetCollection.ToArray();
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void ArrayAsICollection()
         {
-            int sum = 0;
-            foreach (var num in collection)
+            ICollection<int> collection = GetCollection.ToArray();
+            for (int i = 0; i < RepeatCount; i++)
             {
-                sum += num;
+                int sum = 0;
+                foreach (var num in collection)
+                {
+                    sum += num;
+                }
             }
         }
-    }
     
-    [Benchmark]
-    public void ArrayAsIList()
-    {
-        IList<int> collection = GetCollection.ToArray();
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void ArrayAsIList()
         {
-            int sum = 0;
-            foreach (var num in collection)
+            IList<int> collection = GetCollection.ToArray();
+            for (int i = 0; i < RepeatCount; i++)
             {
-                sum += num;
+                int sum = 0;
+                foreach (var num in collection)
+                {
+                    sum += num;
+                }
             }
         }
-    }
     
-    [Benchmark]
-    public void ArrayAsIReadOnlyCollection()
-    {
-        IReadOnlyCollection<int> collection = GetCollection.ToArray();
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void ArrayAsIReadOnlyCollection()
         {
-            int sum = 0;
-            foreach (var num in collection)
+            IReadOnlyCollection<int> collection = GetCollection.ToArray();
+            for (int i = 0; i < RepeatCount; i++)
             {
-                sum += num;
+                int sum = 0;
+                foreach (var num in collection)
+                {
+                    sum += num;
+                }
             }
         }
-    }
     
-    [Benchmark]
-    public void ArrayAsIReadOnlyList()
-    {
-        IReadOnlyList<int> collection = GetCollection.ToArray();
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void ArrayAsIReadOnlyList()
         {
-            int sum = 0;
-            foreach (var num in collection)
+            IReadOnlyList<int> collection = GetCollection.ToArray();
+            for (int i = 0; i < RepeatCount; i++)
             {
-                sum += num;
+                int sum = 0;
+                foreach (var num in collection)
+                {
+                    sum += num;
+                }
             }
         }
-    }
     
-    [Benchmark]
-    public void List()
-    {
-        List<int> collection = GetCollection.ToList();
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void List()
         {
-            int sum = 0;
-            foreach (var num in collection)
+            List<int> collection = GetCollection.ToList();
+            for (int i = 0; i < RepeatCount; i++)
             {
-                sum += num;
+                int sum = 0;
+                foreach (var num in collection)
+                {
+                    sum += num;
+                }
             }
         }
-    }
     
-    [Benchmark]
-    public void ListAsIEnumerable()
-    {
-        IEnumerable<int> collection = GetCollection.ToList();
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void ListAsIEnumerable()
         {
-            int sum = 0;
-            foreach (var num in collection)
+            IEnumerable<int> collection = GetCollection.ToList();
+            for (int i = 0; i < RepeatCount; i++)
             {
-                sum += num;
+                int sum = 0;
+                foreach (var num in collection)
+                {
+                    sum += num;
+                }
             }
         }
-    }
     
-    [Benchmark]
-    public void ListAsICollection()
-    {
-        ICollection<int> collection = GetCollection.ToList();
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void ListAsICollection()
         {
-            int sum = 0;
-            foreach (var num in collection)
+            ICollection<int> collection = GetCollection.ToList();
+            for (int i = 0; i < RepeatCount; i++)
             {
-                sum += num;
+                int sum = 0;
+                foreach (var num in collection)
+                {
+                    sum += num;
+                }
             }
         }
-    }
     
-    [Benchmark]
-    public void ListAsIList()
-    {
-        IList<int> collection = GetCollection.ToList();
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void ListAsIList()
         {
-            int sum = 0;
-            foreach (var num in collection)
+            IList<int> collection = GetCollection.ToList();
+            for (int i = 0; i < RepeatCount; i++)
             {
-                sum += num;
+                int sum = 0;
+                foreach (var num in collection)
+                {
+                    sum += num;
+                }
             }
         }
-    }
     
-    [Benchmark]
-    public void ListAsIReadOnlyCollection()
-    {
-        IReadOnlyCollection<int> collection = GetCollection.ToList();
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void ListAsIReadOnlyCollection()
         {
-            int sum = 0;
-            foreach (var num in collection)
+            IReadOnlyCollection<int> collection = GetCollection.ToList();
+            for (int i = 0; i < RepeatCount; i++)
             {
-                sum += num;
+                int sum = 0;
+                foreach (var num in collection)
+                {
+                    sum += num;
+                }
             }
         }
-    }
     
-    [Benchmark]
-    public void ListAsIReadOnlyList()
-    {
-        IReadOnlyList<int> collection = GetCollection.ToList();
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void ListAsIReadOnlyList()
         {
-            int sum = 0;
-            foreach (var num in collection)
+            IReadOnlyList<int> collection = GetCollection.ToList();
+            for (int i = 0; i < RepeatCount; i++)
             {
-                sum += num;
+                int sum = 0;
+                foreach (var num in collection)
+                {
+                    sum += num;
+                }
             }
         }
-    }
     
     
-    [Benchmark]
-    public void HashSet()
-    {
-        HashSet<int> collection = GetCollection.ToHashSet();
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void HashSet()
         {
-            int sum = 0;
-            foreach (var num in collection)
+            HashSet<int> collection = GetCollection.ToHashSet();
+            for (int i = 0; i < RepeatCount; i++)
             {
-                sum += num;
+                int sum = 0;
+                foreach (var num in collection)
+                {
+                    sum += num;
+                }
             }
         }
-    }
     
     
-    [Benchmark]
-    public void HashSetAsISet()
-    {
-        ISet<int> collection = GetCollection.ToHashSet();
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void HashSetAsISet()
         {
-            int sum = 0;
-            foreach (var num in collection)
+            ISet<int> collection = GetCollection.ToHashSet();
+            for (int i = 0; i < RepeatCount; i++)
             {
-                sum += num;
+                int sum = 0;
+                foreach (var num in collection)
+                {
+                    sum += num;
+                }
             }
         }
-    }
     
     
-    [Benchmark]
-    public void HashSetAsIReadOnlySet()
-    {
-        IReadOnlySet<int> collection = GetCollection.ToHashSet();
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void HashSetAsIReadOnlySet()
         {
-            int sum = 0;
-            foreach (var num in collection)
+            IReadOnlySet<int> collection = GetCollection.ToHashSet();
+            for (int i = 0; i < RepeatCount; i++)
             {
-                sum += num;
+                int sum = 0;
+                foreach (var num in collection)
+                {
+                    sum += num;
+                }
             }
         }
     }

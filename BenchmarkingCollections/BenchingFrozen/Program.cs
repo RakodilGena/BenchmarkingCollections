@@ -1,92 +1,87 @@
 ﻿using System.Collections.Frozen;
+using BenchingFrozen;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 
 var summary = BenchmarkRunner.Run<BenchmarkingCollections>();
 
-[MemoryDiagnoser(true)]
-public class BenchmarkingCollections
+namespace BenchingFrozen
 {
-    [Params(10000)] public int RepeatCount;
-    
-    private IEnumerable<int> GetCollection
-        => Enumerable.Range(1, 1000);
-    
-    [Benchmark]
-    public void Array()
+    [MemoryDiagnoser(true)]
+    public class BenchmarkingCollections
     {
-        int[] collection = GetCollection.ToArray();
-        var random = new Random();
-        
-        for (int i = 0; i < RepeatCount; i++)
+        [Params(10000)] 
+        public int RepeatCount;
+    
+        private const int SEED = 55;
+        private const int MIN_VALUE =1, MAX_VALUE = 1000;
+    
+        private IEnumerable<int> GetCollection
+            => Enumerable.Range(MIN_VALUE, MAX_VALUE);
+    
+        [Benchmark]
+        public void Array()
         {
-            var searched = random.Next(1, 500);
-            _ = collection.Contains(searched);
+            int[] collection = GetCollection.ToArray();
+            var random = new Random(SEED);
+        
+            for (int i = 0; i < RepeatCount; i++)
+            {
+                var searched = random.Next(MIN_VALUE, MAX_VALUE);
+                _ = collection.Contains(searched);
+            }
         }
-    }
     
-    [Benchmark]
-    public void HashSet()
-    {
-        HashSet<int> set = GetCollection.ToHashSet();
-        var random = new Random();
-        
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void HashSet()
         {
-            var searched = random.Next(1, 500);
-            _ = set.Contains(searched);
+            HashSet<int> set = GetCollection.ToHashSet();
+            var random = new Random(SEED);
+        
+            for (int i = 0; i < RepeatCount; i++)
+            {
+                var searched = random.Next(MIN_VALUE, MAX_VALUE);
+                _ = set.Contains(searched);
+            }
         }
-    }
     
-    [Benchmark]
-    public void FrozenSet()
-    {
-        FrozenSet<int> set = GetCollection.ToFrozenSet();
-        var random = new Random();
-        
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void FrozenSet()
         {
-            var searched = random.Next(1, 500);
-            _ = set.Contains(searched);
+            FrozenSet<int> set = GetCollection.ToFrozenSet();
+            var random = new Random(SEED);
+        
+            for (int i = 0; i < RepeatCount; i++)
+            {
+                var searched = random.Next(MIN_VALUE, MAX_VALUE);
+                _ = set.Contains(searched);
+            }
         }
-    }
     
-    [Benchmark]
-    public void FrozenSetFromHashSet()
-    {
-        FrozenSet<int> set = GetCollection.ToHashSet().ToFrozenSet();
-        var random = new Random();
-        
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void Dictionary()
         {
-            var searched = random.Next(1, 500);
-            _ = set.Contains(searched);
+            var dictionary = GetCollection.ToDictionary(c=> c);
+            var random = new Random(SEED);
+        
+            for (int i = 0; i < RepeatCount; i++)
+            {
+                var searched = random.Next(MIN_VALUE, MAX_VALUE);
+                _ = dictionary.TryGetValue(searched, out _);
+            }
         }
-    }
     
-    [Benchmark]
-    public void Dictionary()
-    {
-        var dictionary = GetCollection.ToDictionary(c=> c);
-        var random = new Random();
-        
-        for (int i = 0; i < RepeatCount; i++)
+        [Benchmark]
+        public void FrozenDictionary()
         {
-            var searched = random.Next(1, 500);
-            _ = dictionary.TryGetValue(searched, out _);
-        }
-    }
-    
-    [Benchmark]
-    public void FrozenDictionary()
-    {
-        var dictionary = GetCollection.ToFrozenDictionary(c=> c);
-        var random = new Random();
+            var dictionary = GetCollection.ToFrozenDictionary(c=> c);
+            var random = new Random(SEED);
         
-        for (int i = 0; i < RepeatCount; i++)
-        {
-            var searched = random.Next(1, 500);
-            _ = dictionary.TryGetValue(searched, out _);
+            for (int i = 0; i < RepeatCount; i++)
+            {
+                var searched = random.Next(MIN_VALUE, MAX_VALUE);
+                _ = dictionary.TryGetValue(searched, out _);
+            }
         }
     }
 }

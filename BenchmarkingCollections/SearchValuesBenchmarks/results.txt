@@ -1,0 +1,104 @@
+﻿Valid strings:
+
+| Method             | ValidString          | Mean         | Error      | StdDev     | Allocated |
+|------------------- |--------------------- |-------------:|-----------:|-----------:|----------:|
+| Naive_Valid        | AFHB5(...)FZXCV [31] |   156.105 ns |  3.0091 ns |  3.0901 ns |         - |
+| HashSet_Valid      | AFHB5(...)FZXCV [31] |    82.098 ns |  0.4049 ns |  0.3787 ns |         - |
+| FrozenSet_Valid    | AFHB5(...)FZXCV [31] |    63.286 ns |  0.2735 ns |  0.2559 ns |         - |
+| Span_Valid         | AFHB5(...)FZXCV [31] |    28.844 ns |  0.5926 ns |  0.8687 ns |         - |
+| SearchValues_Valid | AFHB5(...)FZXCV [31] |     1.950 ns |  0.0123 ns |  0.0109 ns |         - |
+| Naive_Valid        | AFHB(...)ZXCV [124]  |   659.433 ns |  2.2750 ns |  2.0167 ns |         - |
+| HashSet_Valid      | AFHB(...)ZXCV [124]  |   328.068 ns |  0.9935 ns |  0.8296 ns |         - |
+| FrozenSet_Valid    | AFHB(...)ZXCV [124]  |   236.433 ns |  0.4652 ns |  0.3885 ns |         - |
+| Span_Valid         | AFHB(...)ZXCV [124]  |    30.603 ns |  0.1539 ns |  0.1439 ns |         - |
+| SearchValues_Valid | AFHB(...)ZXCV [124]  |     4.895 ns |  0.0148 ns |  0.0138 ns |         - |
+| Naive_Valid        | AFHB(...)ZXCV [341]  | 1,823.495 ns |  4.7440 ns |  3.9615 ns |         - |
+| HashSet_Valid      | AFHB(...)ZXCV [341]  |   906.884 ns |  3.9807 ns |  3.3241 ns |         - |
+| FrozenSet_Valid    | AFHB(...)ZXCV [341]  |   649.524 ns |  2.8237 ns |  2.3579 ns |         - |
+| Span_Valid         | AFHB(...)ZXCV [341]  |    38.996 ns |  0.1781 ns |  0.1579 ns |         - |
+| SearchValues_Valid | AFHB(...)ZXCV [341]  |    11.259 ns |  0.0304 ns |  0.0284 ns |         - |
+| Naive_Valid        | AFHB(...)ZXCV [1364] | 7,245.024 ns | 14.0680 ns | 11.7474 ns |         - |
+| HashSet_Valid      | AFHB(...)ZXCV [1364] | 3,563.595 ns | 14.2381 ns | 13.3183 ns |         - |
+| FrozenSet_Valid    | AFHB(...)ZXCV [1364] | 2,579.590 ns |  7.2071 ns |  6.3889 ns |         - |
+| Span_Valid         | AFHB(...)ZXCV [1364] |    73.211 ns |  0.2499 ns |  0.2338 ns |         - |
+| SearchValues_Valid | AFHB(...)ZXCV [1364] |    41.950 ns |  0.1305 ns |  0.1221 ns |         - |
+|____________________|______________________|______________|____________|____________|___________|
+
+
+Invalid strings (invalid char close to start):
+
+| Method                     | InvalidStringStart   | Mean       | Error     | StdDev    | Allocated |
+|--------------------------- |--------------------- |-----------:|----------:|----------:|----------:|
+| Naive_InValid_Start        | AFHB5(...)FZXCV [32] |  30.422 ns | 0.6227 ns | 0.6116 ns |         - |
+| HashSet_InValid_Start      | AFHB5(...)FZXCV [32] |  15.840 ns | 0.3130 ns | 0.2614 ns |         - |
+| FrozenSet_InValid_Start    | AFHB5(...)FZXCV [32] |  11.348 ns | 0.2044 ns | 0.2433 ns |         - |
+| Span_InValid_Start         | AFHB5(...)FZXCV [32] |  28.397 ns | 0.5657 ns | 0.5292 ns |         - |
+| SearchValues_InValid_Start | AFHB5(...)FZXCV [32] |   3.086 ns | 0.0422 ns | 0.0374 ns |         - |
+| Naive_InValid_Start        | AFHB(...)ZXCV [125]  |  69.903 ns | 0.5112 ns | 0.4532 ns |         - |
+| HashSet_InValid_Start      | AFHB(...)ZXCV [125]  |  35.628 ns | 0.1291 ns | 0.1208 ns |         - |
+| FrozenSet_InValid_Start    | AFHB(...)ZXCV [125]  |  36.463 ns | 0.3145 ns | 0.2942 ns |         - |
+| Span_InValid_Start         | AFHB(...)ZXCV [125]  |  28.370 ns | 0.1085 ns | 0.0961 ns |         - |
+| SearchValues_InValid_Start | AFHB(...)ZXCV [125]  |   2.265 ns | 0.0160 ns | 0.0142 ns |         - |
+| Naive_InValid_Start        | AFHB(...)ZXCV [342]  | 201.419 ns | 0.5073 ns | 0.4236 ns |         - |
+| HashSet_InValid_Start      | AFHB(...)ZXCV [342]  | 103.757 ns | 0.3317 ns | 0.2940 ns |         - |
+| FrozenSet_InValid_Start    | AFHB(...)ZXCV [342]  |  81.356 ns | 0.2382 ns | 0.1859 ns |         - |
+| Span_InValid_Start         | AFHB(...)ZXCV [342]  |  31.559 ns | 0.5461 ns | 0.4841 ns |         - |
+| SearchValues_InValid_Start | AFHB(...)ZXCV [342]  |   3.168 ns | 0.0201 ns | 0.0178 ns |         - |
+| Naive_InValid_Start        | AFHB(...)ZXCV [1365] | 401.563 ns | 1.2543 ns | 1.1732 ns |         - |
+| HashSet_InValid_Start      | AFHB(...)ZXCV [1365] | 199.324 ns | 0.5431 ns | 0.4535 ns |         - |
+| FrozenSet_InValid_Start    | AFHB(...)ZXCV [1365] | 146.891 ns | 0.5291 ns | 0.4949 ns |         - |
+| Span_InValid_Start         | AFHB(...)ZXCV [1365] |  32.850 ns | 0.1317 ns | 0.1232 ns |         - |
+| SearchValues_InValid_Start | AFHB(...)ZXCV [1365] |   4.026 ns | 0.0164 ns | 0.0145 ns |         - |
+|____________________________|______________________|____________|___________|___________|___________|
+
+
+Invalid strings (invalid char close to middle):
+| Method                      | InvalidStringMiddle  | Mean         | Error      | StdDev     | Allocated |
+|---------------------------- |--------------------- |-------------:|-----------:|-----------:|----------:|
+| Naive_InValid_Middle        | AFHB5(...)FZXCV [32] |    80.213 ns |  0.6154 ns |  0.5455 ns |         - |
+| HashSet_InValid_Middle      | AFHB5(...)FZXCV [32] |    40.195 ns |  0.1460 ns |  0.1294 ns |         - |
+| FrozenSet_InValid_Middle    | AFHB5(...)FZXCV [32] |    40.247 ns |  0.3196 ns |  0.2989 ns |         - |
+| Span_InValid_Middle         | AFHB5(...)FZXCV [32] |    28.434 ns |  0.1854 ns |  0.1548 ns |         - |
+| SearchValues_InValid_Middle | AFHB5(...)FZXCV [32] |     2.976 ns |  0.0159 ns |  0.0141 ns |         - |
+| Naive_InValid_Middle        | AFHB(...)ZXCV [125]  |   387.855 ns |  0.9624 ns |  0.8532 ns |         - |
+| HashSet_InValid_Middle      | AFHB(...)ZXCV [125]  |   187.212 ns |  0.7322 ns |  0.6849 ns |         - |
+| FrozenSet_InValid_Middle    | AFHB(...)ZXCV [125]  |   142.185 ns |  0.4520 ns |  0.4228 ns |         - |
+| Span_InValid_Middle         | AFHB(...)ZXCV [125]  |    33.188 ns |  0.1370 ns |  0.1282 ns |         - |
+| SearchValues_InValid_Middle | AFHB(...)ZXCV [125]  |     4.072 ns |  0.0214 ns |  0.0179 ns |         - |
+| Naive_InValid_Middle        | AFHB(...)ZXCV [342]  |   956.507 ns |  5.6981 ns |  4.7582 ns |         - |
+| HashSet_InValid_Middle      | AFHB(...)ZXCV [342]  |   499.651 ns |  2.2424 ns |  1.7508 ns |         - |
+| FrozenSet_InValid_Middle    | AFHB(...)ZXCV [342]  |   341.926 ns |  1.1536 ns |  1.0227 ns |         - |
+| Span_InValid_Middle         | AFHB(...)ZXCV [342]  |    31.709 ns |  0.1539 ns |  0.1201 ns |         - |
+| SearchValues_InValid_Middle | AFHB(...)ZXCV [342]  |     7.045 ns |  0.0343 ns |  0.0321 ns |         - |
+| Naive_InValid_Middle        | AFHB(...)ZXCV [1365] | 3,400.723 ns | 12.9945 ns | 10.8510 ns |         - |
+| HashSet_InValid_Middle      | AFHB(...)ZXCV [1365] | 1,751.582 ns |  3.9820 ns |  3.3252 ns |         - |
+| FrozenSet_InValid_Middle    | AFHB(...)ZXCV [1365] | 1,192.609 ns |  4.0695 ns |  3.8066 ns |         - |
+| Span_InValid_Middle         | AFHB(...)ZXCV [1365] |    45.094 ns |  0.1162 ns |  0.1030 ns |         - |
+| SearchValues_InValid_Middle | AFHB(...)ZXCV [1365] |    18.734 ns |  0.0653 ns |  0.0546 ns |         - |
+|____________________________|_______________________|______________|____________|____________|___________|
+
+
+Invalid strings (invalid char close to end):
+| Method                   | InvalidStringEnd     | Mean         | Error      | StdDev     | Allocated |
+|------------------------- |--------------------- |-------------:|-----------:|-----------:|----------:|
+| Naive_InValid_End        | AFHB5(...)Z^XCV [32] |   142.366 ns |  1.4716 ns |  1.3765 ns |         - |
+| HashSet_InValid_End      | AFHB5(...)Z^XCV [32] |    79.058 ns |  0.3979 ns |  0.3322 ns |         - |
+| FrozenSet_InValid_End    | AFHB5(...)Z^XCV [32] |    65.552 ns |  0.3594 ns |  0.3362 ns |         - |
+| Span_InValid_End         | AFHB5(...)Z^XCV [32] |    28.586 ns |  0.1682 ns |  0.1491 ns |         - |
+| SearchValues_InValid_End | AFHB5(...)Z^XCV [32] |     2.982 ns |  0.0277 ns |  0.0245 ns |         - |
+| Naive_InValid_End        | AFHB(...)ZXCV [125]  |   638.385 ns |  2.2538 ns |  2.1083 ns |         - |
+| HashSet_InValid_End      | AFHB(...)ZXCV [125]  |   333.317 ns |  0.9471 ns |  0.8396 ns |         - |
+| FrozenSet_InValid_End    | AFHB(...)ZXCV [125]  |   233.718 ns |  0.4804 ns |  0.4011 ns |         - |
+| Span_InValid_End         | AFHB(...)ZXCV [125]  |    37.768 ns |  0.3363 ns |  0.3145 ns |         - |
+| SearchValues_InValid_End | AFHB(...)ZXCV [125]  |     6.249 ns |  0.1149 ns |  0.1074 ns |         - |
+| Naive_InValid_End        | AFHB(...)ZXCV [342]  | 1,788.771 ns |  5.4934 ns |  5.1385 ns |         - |
+| HashSet_InValid_End      | AFHB(...)ZXCV [342]  |   926.952 ns |  2.6761 ns |  2.3723 ns |         - |
+| FrozenSet_InValid_End    | AFHB(...)ZXCV [342]  |   634.514 ns |  1.9176 ns |  1.6999 ns |         - |
+| Span_InValid_End         | AFHB(...)ZXCV [342]  |    42.754 ns |  0.2577 ns |  0.2285 ns |         - |
+| SearchValues_InValid_End | AFHB(...)ZXCV [342]  |    11.901 ns |  0.0251 ns |  0.0235 ns |         - |
+| Naive_InValid_End        | AFHB(...)ZXCV [1365] | 7,243.668 ns | 27.1178 ns | 24.0392 ns |         - |
+| HashSet_InValid_End      | AFHB(...)ZXCV [1365] | 3,742.032 ns | 12.6802 ns | 11.2407 ns |         - |
+| FrozenSet_InValid_End    | AFHB(...)ZXCV [1365] | 2,540.078 ns |  8.1730 ns |  7.6451 ns |         - |
+| Span_InValid_End         | AFHB(...)ZXCV [1365] |    71.000 ns |  0.1670 ns |  0.1480 ns |         - |
+| SearchValues_InValid_End | AFHB(...)ZXCV [1365] |    41.836 ns |  0.1078 ns |  0.1009 ns |         - |
+|__________________________|______________________|______________|____________|____________|___________|

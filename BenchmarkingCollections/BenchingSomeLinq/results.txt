@@ -1,0 +1,21 @@
+﻿| Method                    | RepeatCount | Mean             | Error           | StdDev          | Gen0      | Gen1      | Gen2      | Allocated  |
+|-------------------------- |------------ |-----------------:|----------------:|----------------:|----------:|----------:|----------:|-----------:|
+| BenchmarkAddToList        | 10          |         455.7 ns |         8.95 ns |        11.64 ns |    0.7906 |    0.0129 |         - |    6.46 KB |
+| BenchmarkConcatEnumerable | 10          |         630.3 ns |         7.59 ns |         7.10 ns |    0.8659 |    0.0143 |         - |    7.08 KB |
+| BenchmarkAddToList        | 100         |       3,241.1 ns |        55.87 ns |        72.65 ns |    6.1340 |    0.5569 |         - |   50.28 KB |
+| BenchmarkConcatEnumerable | 100         |      11,096.7 ns |        38.02 ns |        35.56 ns |    6.8817 |    0.6714 |         - |   56.52 KB |
+| BenchmarkAddToList        | 1000        |      72,099.2 ns |       725.81 ns |       678.93 ns |   95.2148 |   95.2148 |   95.2148 |  400.38 KB |
+| BenchmarkConcatEnumerable | 1000        |     870,247.1 ns |     2,725.42 ns |     2,416.01 ns |   94.7266 |   94.7266 |   94.7266 |  462.88 KB |
+| BenchmarkAddToList        | 10000       |     719,035.0 ns |    21,496.88 ns |    62,366.35 ns | 1012.6953 | 1000.9766 | 1000.0000 | 6400.71 KB |
+| BenchmarkConcatEnumerable | 10000       | 104,405,376.2 ns | 1,945,084.44 ns | 1,910,333.01 ns | 1000.0000 | 1000.0000 | 1000.0000 |    7026 KB |
+
+
+| Method               | Runtime  | Mean     | StdDev  | Ratio | Gen0    | Gen1    | Gen2    | Allocated | Alloc Ratio |
+|--------------------- |--------- |---------:|--------:|------:|--------:|--------:|--------:|----------:|------------:|
+| BenchmarkLambda      | .NET 6.0 | 201.3 us | 1.70 us |  1.00 | 95.2148 | 95.2148 | 95.2148 | 644.09 KB |        1.00 |
+| BenchmarkLambda      | .NET 7.0 | 188.7 us | 1.21 us |  0.94 | 95.2148 | 95.2148 | 95.2148 | 644.09 KB |        1.00 |
+| BenchmarkLambda      | .NET 8.0 | 113.0 us | 0.54 us |  0.56 | 38.4521 | 38.4521 | 38.4521 | 276.04 KB |        0.43 |
+|                      |          |          |         |       |         |         |         |           |             |
+| BenchmarkMethodGroup | .NET 6.0 | 189.0 us | 0.86 us |  1.00 | 95.2148 | 95.2148 | 95.2148 | 644.06 KB |        1.00 |
+| BenchmarkMethodGroup | .NET 7.0 | 183.7 us | 1.03 us |  0.97 | 95.2148 | 95.2148 | 95.2148 | 644.06 KB |        1.00 |
+| BenchmarkMethodGroup | .NET 8.0 | 108.4 us | 0.79 us |  0.57 | 38.4521 | 38.4521 | 38.4521 | 276.02 KB |        0.43 |
