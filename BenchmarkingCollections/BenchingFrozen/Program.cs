@@ -3,6 +3,8 @@ using BenchingFrozen;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 
+ 
+
 var summary = BenchmarkRunner.Run<BenchmarkingCollections>();
 
 namespace BenchingFrozen
@@ -23,6 +25,19 @@ namespace BenchingFrozen
         public void Array()
         {
             int[] collection = GetCollection.ToArray();
+            var random = new Random(SEED);
+        
+            for (int i = 0; i < RepeatCount; i++)
+            {
+                var searched = random.Next(MIN_VALUE, MAX_VALUE);
+                _ = collection.Contains(searched);
+            }
+        }
+    
+        [Benchmark]
+        public void List()
+        {
+            List<int> collection = GetCollection.ToList();
             var random = new Random(SEED);
         
             for (int i = 0; i < RepeatCount; i++)
@@ -55,6 +70,32 @@ namespace BenchingFrozen
             {
                 var searched = random.Next(MIN_VALUE, MAX_VALUE);
                 _ = set.Contains(searched);
+            }
+        }
+        
+        [Benchmark]
+        public void SpanIndexOf()
+        {
+            var span = GetCollection.ToArray().AsSpan();
+            var random = new Random(SEED);
+        
+            for (int i = 0; i < RepeatCount; i++)
+            {
+                var searched = random.Next(MIN_VALUE, MAX_VALUE);
+                _ = span.IndexOf(searched) is not -1;
+            }
+        }
+        
+        [Benchmark]
+        public void SpanContains()
+        {
+            var span = GetCollection.ToArray().AsSpan();
+            var random = new Random(SEED);
+        
+            for (int i = 0; i < RepeatCount; i++)
+            {
+                var searched = random.Next(MIN_VALUE, MAX_VALUE);
+                _ = span.Contains(searched);
             }
         }
     

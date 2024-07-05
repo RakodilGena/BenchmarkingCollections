@@ -1,0 +1,46 @@
+| Method                                 | CollectionIndex | Mean           | Error         | StdDev        | Median         | Gen0     | Gen1     | Gen2     | Allocated |
+|--------------------------------------- |---------------- |---------------:|--------------:|--------------:|---------------:|---------:|---------:|---------:|----------:|
+| ToArrayNotUsed_Tuples                  | 0               |       293.3 ns |       1.28 ns |       1.13 ns |       293.4 ns |   0.1078 |        - |        - |     904 B |
+| ToArrayInnerElements_Tuples            | 0               |       323.2 ns |       6.41 ns |       8.11 ns |       319.3 ns |   0.1211 |        - |        - |    1016 B |
+| ToArrayGrouping_Tuples                 | 0               |       351.2 ns |       6.85 ns |       8.66 ns |       347.1 ns |   0.1287 |        - |        - |    1080 B |
+| ToArrayGroupingAndElements_Tuples      | 0               |       365.4 ns |       3.03 ns |       2.53 ns |       365.1 ns |   0.1421 |        - |        - |    1192 B |
+| ToArrayNotUsed_AnonClasses             | 0               |       286.8 ns |       1.82 ns |       1.52 ns |       287.3 ns |   0.1144 |        - |        - |     960 B |
+| ToArrayInnerElements_AnonClasses       | 0               |       322.8 ns |       6.48 ns |       8.20 ns |       319.7 ns |   0.1278 |        - |        - |    1072 B |
+| ToArrayGrouping_AnonClasses            | 0               |       337.8 ns |       2.42 ns |       2.02 ns |       337.5 ns |   0.1297 |        - |        - |    1088 B |
+| ToArrayGroupingAndElements_AnonClasses | 0               |       365.0 ns |       1.87 ns |       1.75 ns |       364.7 ns |   0.1431 |        - |        - |    1200 B |
+
+| ToArrayNotUsed_Tuples                  | 1               |     2,064.5 ns |      41.26 ns |      52.19 ns |     2,034.2 ns |   0.6218 |   0.0038 |        - |    5224 B |
+| ToArrayInnerElements_Tuples            | 1               |     2,135.1 ns |      10.31 ns |       9.64 ns |     2,134.0 ns |   0.7401 |   0.0038 |        - |    6200 B |
+| ToArrayGrouping_Tuples                 | 1               |     2,231.6 ns |      44.12 ns |      43.33 ns |     2,253.1 ns |   0.6981 |   0.0038 |        - |    5848 B |
+| ToArrayGroupingAndElements_Tuples      | 1               |     2,353.8 ns |      12.90 ns |      12.06 ns |     2,356.6 ns |   0.8125 |   0.0076 |        - |    6824 B |
+| ToArrayNotUsed_AnonClasses             | 1               |     2,123.6 ns |      12.74 ns |      11.29 ns |     2,119.7 ns |   0.6638 |   0.0038 |        - |    5568 B |
+| ToArrayInnerElements_AnonClasses       | 1               |     2,319.9 ns |      45.20 ns |      52.05 ns |     2,290.4 ns |   0.7820 |   0.0038 |        - |    6544 B |
+| ToArrayGrouping_AnonClasses            | 1               |     2,171.5 ns |      12.83 ns |      11.38 ns |     2,167.9 ns |   0.7095 |   0.0038 |        - |    5944 B |
+| ToArrayGroupingAndElements_AnonClasses | 1               |     2,391.4 ns |      47.44 ns |      61.68 ns |     2,359.7 ns |   0.8240 |   0.0076 |        - |    6920 B |
+
+| ToArrayNotUsed_Tuples                  | 2               |    19,589.8 ns |     384.48 ns |     513.27 ns |    19,342.0 ns |   5.8289 |   0.4272 |        - |   48824 B |
+| ToArrayInnerElements_Tuples            | 2               |    20,735.9 ns |     112.54 ns |     105.27 ns |    20,719.2 ns |   6.9580 |   0.4883 |        - |   58440 B |
+| ToArrayGrouping_Tuples                 | 2               |    20,796.2 ns |      94.57 ns |      83.84 ns |    20,807.5 ns |   6.2866 |   0.4578 |        - |   52808 B |
+| ToArrayGroupingAndElements_Tuples      | 2               |    21,764.3 ns |     432.74 ns |     531.45 ns |    21,501.3 ns |   7.4463 |   0.5493 |        - |   62424 B |
+| ToArrayNotUsed_AnonClasses             | 2               |    19,792.8 ns |     112.69 ns |     105.41 ns |    19,765.4 ns |   6.1951 |   0.4578 |        - |   52048 B |
+| ToArrayInnerElements_AnonClasses       | 2               |    21,083.7 ns |      92.79 ns |      86.80 ns |    21,079.3 ns |   7.3547 |   0.5188 |        - |   61664 B |
+| ToArrayGrouping_AnonClasses            | 2               |    21,471.8 ns |     416.75 ns |     479.93 ns |    21,425.1 ns |   6.4697 |   0.4578 |        - |   54168 B |
+| ToArrayGroupingAndElements_AnonClasses | 2               |    21,660.4 ns |      95.00 ns |      74.17 ns |    21,677.0 ns |   7.5989 |   0.5798 |        - |   63784 B |
+
+| ToArrayNotUsed_Tuples                  | 3               |   198,042.0 ns |     776.68 ns |     726.50 ns |   197,924.5 ns |  57.3730 |  17.3340 |        - |  480808 B |
+| ToArrayInnerElements_Tuples            | 3               |   212,810.0 ns |   2,096.66 ns |   1,750.80 ns |   212,237.1 ns |  68.8477 |  18.3105 |        - |  576824 B |
+| ToArrayGrouping_Tuples                 | 3               |   211,603.9 ns |   1,868.79 ns |   1,560.52 ns |   211,921.4 ns |  61.2793 |  18.5547 |        - |  513688 B |
+| ToArrayGroupingAndElements_Tuples      | 3               |   240,616.6 ns |   4,805.20 ns |   4,494.78 ns |   237,605.1 ns |  72.7539 |  20.5078 |        - |  609704 B |
+| ToArrayNotUsed_AnonClasses             | 3               |   204,798.7 ns |   1,797.32 ns |   1,681.21 ns |   203,898.3 ns |  61.2793 |  18.7988 |        - |  512832 B |
+| ToArrayInnerElements_AnonClasses       | 3               |   221,948.6 ns |     726.62 ns |     679.68 ns |   221,998.7 ns |  72.7539 |  22.4609 |        - |  608848 B |
+| ToArrayGrouping_AnonClasses            | 3               |   213,159.7 ns |   3,349.84 ns |   2,969.55 ns |   212,049.6 ns |  63.2324 |  19.2871 |        - |  529480 B |
+| ToArrayGroupingAndElements_AnonClasses | 3               |   222,325.8 ns |   3,092.37 ns |   3,175.63 ns |   220,755.5 ns |  74.7070 |  24.1699 |        - |  625496 B |
+
+| ToArrayNotUsed_Tuples                  | 4               | 7,448,646.3 ns | 106,940.34 ns |  94,799.83 ns | 7,416,646.1 ns | 664.0625 | 406.2500 |  93.7500 | 4902672 B |
+| ToArrayInnerElements_Tuples            | 4               | 7,410,896.5 ns | 144,353.23 ns | 202,363.06 ns | 7,391,753.1 ns | 773.4375 | 375.0000 |  93.7500 | 5862687 B |
+| ToArrayGrouping_Tuples                 | 4               | 7,668,633.2 ns | 116,149.72 ns | 133,758.19 ns | 7,665,389.8 ns | 679.6875 | 429.6875 |  93.7500 | 5325557 B |
+| ToArrayGroupingAndElements_Tuples      | 4               | 9,202,484.7 ns | 182,823.55 ns | 468,646.65 ns | 9,007,957.8 ns | 812.5000 | 515.6250 | 125.0000 | 6285625 B |
+| ToArrayNotUsed_AnonClasses             | 4               | 7,895,675.8 ns |  51,721.73 ns |  43,189.99 ns | 7,901,499.2 ns | 703.1250 | 421.8750 |  93.7500 | 5222697 B |
+| ToArrayInnerElements_AnonClasses       | 4               | 7,857,811.3 ns | 156,592.44 ns | 234,380.19 ns | 7,891,314.8 ns | 812.5000 | 437.5000 |  93.7500 | 6182713 B |
+| ToArrayGrouping_AnonClasses            | 4               | 7,759,348.0 ns | 151,908.45 ns | 212,954.43 ns | 7,820,120.3 ns | 718.7500 | 437.5000 |  93.7500 | 5434472 B |
+| ToArrayGroupingAndElements_AnonClasses | 4               | 7,726,218.9 ns | 118,570.82 ns | 110,911.22 ns | 7,670,520.3 ns | 843.7500 | 359.3750 | 109.3750 | 6394583 B |
