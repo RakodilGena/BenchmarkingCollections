@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchStructsAndSpans", "Ben
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FasterGetDuplicates", "FasterGetDuplicates\FasterGetDuplicates.csproj", "{8C0AE349-1388-4F84-98B8-40591C359CE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnionLists", "UnionLists\UnionLists.csproj", "{772F624A-34B5-4CCF-B32D-6E794FE5DFDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,5 +56,9 @@ Global
 		{8C0AE349-1388-4F84-98B8-40591C359CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C0AE349-1388-4F84-98B8-40591C359CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C0AE349-1388-4F84-98B8-40591C359CE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{772F624A-34B5-4CCF-B32D-6E794FE5DFDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{772F624A-34B5-4CCF-B32D-6E794FE5DFDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{772F624A-34B5-4CCF-B32D-6E794FE5DFDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{772F624A-34B5-4CCF-B32D-6E794FE5DFDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
