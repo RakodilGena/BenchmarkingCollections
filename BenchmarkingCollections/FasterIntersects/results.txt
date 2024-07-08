@@ -1,0 +1,91 @@
+// * Summary *
+
+BenchmarkDotNet v0.13.12, Windows 10 (10.0.19045.4529/22H2/2022Update)
+11th Gen Intel Core i7-11700K 3.60GHz, 1 CPU, 16 logical and 8 physical cores
+.NET SDK 8.0.203
+  [Host]     : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+  DefaultJob : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+
+
+| Method                                            | Count  | Mean                 | Error             | StdDev            | Median               | Gen0    | Gen1    | Gen2    | Allocated |
+|-------------------------------------------------- |------- |---------------------:|------------------:|------------------:|---------------------:|--------:|--------:|--------:|----------:|
+| IntersectArrays_Stupid                            | 10     |            58.836 ns |         0.4234 ns |         0.3961 ns |            58.756 ns |  0.0134 |       - |       - |     112 B |
+| IntersectArrays_Linq                              | 10     |           132.791 ns |         1.9312 ns |         1.8064 ns |           132.829 ns |  0.0591 |       - |       - |     496 B |
+| IntersectArrays_WithHashSet                       | 10     |           202.358 ns |         0.9468 ns |         0.8393 ns |           202.329 ns |  0.0477 |       - |       - |     400 B |
+| IntersectHashSets_Stupid                          | 10     |            73.938 ns |         0.3877 ns |         0.3626 ns |            74.100 ns |  0.0191 |       - |       - |     160 B |
+| IntersectHashSets_Linq                            | 10     |           142.952 ns |         1.9135 ns |         1.5978 ns |           142.774 ns |  0.0706 |       - |       - |     592 B |
+| IntersectHashSets_IntersectWith                   | 10     |             5.669 ns |         0.0224 ns |         0.0210 ns |             5.665 ns |       - |       - |       - |         - |
+| IntersectFrozenSets_Stupid                        | 10     |            77.492 ns |         0.3767 ns |         0.3523 ns |            77.495 ns |  0.0181 |       - |       - |     152 B |
+| IntersectFrozenSets_Linq                          | 10     |           125.172 ns |         2.4748 ns |         2.3150 ns |           125.352 ns |  0.0591 |       - |       - |     496 B |
+| IntersectCombo_HashSetWithArray_Linq              | 10     |           133.995 ns |         1.1151 ns |         1.0431 ns |           134.094 ns |  0.0601 |       - |       - |     504 B |
+| IntersectCombo_HashSetWithArray_IntersectWith     | 10     |             5.599 ns |         0.0192 ns |         0.0170 ns |             5.601 ns |       - |       - |       - |         - |
+| IntersectCombo_ArrayWithHashSet                   | 10     |           129.764 ns |         1.7175 ns |         1.6066 ns |           130.004 ns |  0.0696 |       - |       - |     584 B |
+| IntersectCombo_FrozenSetWithArray                 | 10     |           132.270 ns |         1.8124 ns |         1.5134 ns |           132.638 ns |  0.0591 |       - |       - |     496 B |
+| IntersectCombo_ArrayWithFrozenSet                 | 10     |           130.010 ns |         1.5477 ns |         1.4477 ns |           130.103 ns |  0.0591 |       - |       - |     496 B |
+| IntersectCombo_HashSetWithFrozenSet_Linq          | 10     |           133.499 ns |         1.7774 ns |         1.6626 ns |           133.441 ns |  0.0601 |       - |       - |     504 B |
+| IntersectCombo_HashSetWithFrozenSet_IntersectWith | 10     |             5.639 ns |         0.0128 ns |         0.0113 ns |             5.639 ns |       - |       - |       - |         - |
+| IntersectCombo_FrozenSetWithHashSet               | 10     |           135.151 ns |         1.6016 ns |         1.3374 ns |           135.042 ns |  0.0696 |       - |       - |     584 B |
+| IntersectArrays_Stupid                            | 100    |           777.892 ns |         4.4053 ns |         3.6786 ns |           777.108 ns |  0.0134 |       - |       - |     112 B |
+| IntersectArrays_Linq                              | 100    |           789.535 ns |         5.4132 ns |         4.2263 ns |           789.348 ns |  0.2880 |  0.0019 |       - |    2416 B |
+| IntersectArrays_WithHashSet                       | 100    |         1,489.991 ns |         8.3021 ns |         7.7658 ns |         1,490.940 ns |  0.2766 |  0.0019 |       - |    2320 B |
+| IntersectHashSets_Stupid                          | 100    |           476.081 ns |         2.0489 ns |         1.7109 ns |           475.659 ns |  0.0191 |       - |       - |     160 B |
+| IntersectHashSets_Linq                            | 100    |           685.083 ns |         9.9607 ns |         9.3173 ns |           685.811 ns |  0.5007 |  0.0076 |       - |    4192 B |
+| IntersectHashSets_IntersectWith                   | 100    |             5.275 ns |         0.0212 ns |         0.0188 ns |             5.276 ns |       - |       - |       - |         - |
+| IntersectFrozenSets_Stupid                        | 100    |           321.451 ns |         2.9029 ns |         2.7154 ns |           321.867 ns |  0.0181 |       - |       - |     152 B |
+| IntersectFrozenSets_Linq                          | 100    |           843.421 ns |         3.3357 ns |         2.9570 ns |           843.238 ns |  0.2880 |  0.0019 |       - |    2416 B |
+| IntersectCombo_HashSetWithArray_Linq              | 100    |           862.584 ns |         6.4424 ns |         6.0262 ns |           862.979 ns |  0.2890 |  0.0019 |       - |    2424 B |
+| IntersectCombo_HashSetWithArray_IntersectWith     | 100    |             5.586 ns |         0.0202 ns |         0.0179 ns |             5.582 ns |       - |       - |       - |         - |
+| IntersectCombo_ArrayWithHashSet                   | 100    |           606.695 ns |        12.0501 ns |        22.6329 ns |           594.554 ns |  0.4997 |  0.0076 |       - |    4184 B |
+| IntersectCombo_FrozenSetWithArray                 | 100    |           808.016 ns |         7.0523 ns |         6.5967 ns |           807.942 ns |  0.2880 |  0.0019 |       - |    2416 B |
+| IntersectCombo_ArrayWithFrozenSet                 | 100    |           805.495 ns |         5.4085 ns |         5.0591 ns |           806.850 ns |  0.2880 |  0.0019 |       - |    2416 B |
+| IntersectCombo_HashSetWithFrozenSet_Linq          | 100    |           882.869 ns |         7.2429 ns |         6.7750 ns |           882.390 ns |  0.2890 |  0.0019 |       - |    2424 B |
+| IntersectCombo_HashSetWithFrozenSet_IntersectWith | 100    |             5.634 ns |         0.0247 ns |         0.0206 ns |             5.631 ns |       - |       - |       - |         - |
+| IntersectCombo_FrozenSetWithHashSet               | 100    |           599.593 ns |         7.4512 ns |         6.9699 ns |           600.856 ns |  0.4997 |  0.0076 |       - |    4184 B |
+| IntersectArrays_Stupid                            | 1000   |        51,797.192 ns |        76.8329 ns |        64.1590 ns |        51,825.391 ns |       - |       - |       - |     112 B |
+| IntersectArrays_Linq                              | 1000   |         7,398.825 ns |        55.1668 ns |        51.6031 ns |         7,388.725 ns |  2.6627 |  0.2213 |       - |   22336 B |
+| IntersectArrays_WithHashSet                       | 1000   |        14,206.747 ns |        82.2315 ns |        68.6670 ns |        14,218.658 ns |  2.6398 |  0.1984 |       - |   22240 B |
+| IntersectHashSets_Stupid                          | 1000   |         4,495.957 ns |        87.1138 ns |       100.3204 ns |         4,440.728 ns |  0.0153 |       - |       - |     160 B |
+| IntersectHashSets_Linq                            | 1000   |         5,067.758 ns |        52.8420 ns |        49.4285 ns |         5,057.101 ns |  4.6234 |  0.6561 |       - |   38872 B |
+| IntersectHashSets_IntersectWith                   | 1000   |             5.153 ns |         0.0307 ns |         0.0287 ns |             5.155 ns |       - |       - |       - |         - |
+| IntersectFrozenSets_Stupid                        | 1000   |         3,081.737 ns |        47.5103 ns |        42.1166 ns |         3,101.222 ns |  0.0153 |       - |       - |     152 B |
+| IntersectFrozenSets_Linq                          | 1000   |         7,760.293 ns |        59.6084 ns |        55.7577 ns |         7,767.122 ns |  2.6550 |  0.2136 |       - |   22336 B |
+| IntersectCombo_HashSetWithArray_Linq              | 1000   |         8,187.452 ns |        90.6218 ns |        75.6733 ns |         8,194.777 ns |  2.6550 |  0.2136 |       - |   22344 B |
+| IntersectCombo_HashSetWithArray_IntersectWith     | 1000   |             5.635 ns |         0.0464 ns |         0.0411 ns |             5.635 ns |       - |       - |       - |         - |
+| IntersectCombo_ArrayWithHashSet                   | 1000   |         4,479.061 ns |        25.9308 ns |        20.2450 ns |         4,482.510 ns |  4.6234 |  0.6561 |       - |   38864 B |
+| IntersectCombo_FrozenSetWithArray                 | 1000   |         7,656.261 ns |        49.2902 ns |        46.1061 ns |         7,671.649 ns |  2.6550 |  0.2136 |       - |   22336 B |
+| IntersectCombo_ArrayWithFrozenSet                 | 1000   |         7,697.483 ns |       127.7098 ns |       119.4598 ns |         7,669.612 ns |  2.6550 |  0.2136 |       - |   22336 B |
+| IntersectCombo_HashSetWithFrozenSet_Linq          | 1000   |         8,335.676 ns |        55.1110 ns |        51.5509 ns |         8,344.438 ns |  2.6550 |  0.2136 |       - |   22344 B |
+| IntersectCombo_HashSetWithFrozenSet_IntersectWith | 1000   |             5.643 ns |         0.0211 ns |         0.0187 ns |             5.639 ns |       - |       - |       - |         - |
+| IntersectCombo_FrozenSetWithHashSet               | 1000   |         4,820.674 ns |        28.7437 ns |        22.4412 ns |         4,815.935 ns |  4.6234 |  0.6561 |       - |   38864 B |
+| IntersectArrays_Stupid                            | 10000  |     7,759,585.096 ns |    19,927.4953 ns |    16,640.3611 ns |     7,760,123.438 ns |       - |       - |       - |     124 B |
+| IntersectArrays_Linq                              | 10000  |       167,679.113 ns |     1,058.9370 ns |       990.5303 ns |       167,490.186 ns | 52.2461 | 47.6074 | 47.3633 |  202752 B |
+| IntersectArrays_WithHashSet                       | 10000  |       328,796.038 ns |     1,662.8897 ns |     1,474.1084 ns |       328,614.917 ns | 52.2461 | 47.8516 | 47.3633 |  203930 B |
+| IntersectHashSets_Stupid                          | 10000  |        97,364.702 ns |       458.4513 ns |       406.4052 ns |        97,237.189 ns |       - |       - |       - |     160 B |
+| IntersectHashSets_Linq                            | 10000  |       108,122.787 ns |       471.8165 ns |       393.9881 ns |       108,122.717 ns | 85.3271 | 76.7822 | 76.7822 |  351298 B |
+| IntersectHashSets_IntersectWith                   | 10000  |             5.191 ns |         0.0179 ns |         0.0168 ns |             5.192 ns |       - |       - |       - |         - |
+| IntersectFrozenSets_Stupid                        | 10000  |        37,250.385 ns |       323.5943 ns |       270.2159 ns |        37,230.560 ns |       - |       - |       - |     152 B |
+| IntersectFrozenSets_Linq                          | 10000  |       169,501.809 ns |     1,356.3975 ns |     1,132.6533 ns |       169,354.980 ns | 52.2461 | 47.3633 | 47.3633 |  202752 B |
+| IntersectCombo_HashSetWithArray_Linq              | 10000  |       196,625.192 ns |     1,156.5320 ns |     1,025.2355 ns |       196,527.979 ns | 52.2461 | 47.6074 | 47.3633 |  202761 B |
+| IntersectCombo_HashSetWithArray_IntersectWith     | 10000  |             5.170 ns |         0.0149 ns |         0.0124 ns |             5.171 ns |       - |       - |       - |         - |
+| IntersectCombo_ArrayWithHashSet                   | 10000  |        78,261.356 ns |       426.1111 ns |       377.7364 ns |        78,275.494 ns | 85.3271 | 76.9043 | 76.7822 |  351281 B |
+| IntersectCombo_FrozenSetWithArray                 | 10000  |       187,709.075 ns |       995.4313 ns |       882.4239 ns |       187,635.852 ns | 52.2461 | 47.3633 | 47.3633 |  202751 B |
+| IntersectCombo_ArrayWithFrozenSet                 | 10000  |       172,269.940 ns |     1,687.6440 ns |     1,578.6232 ns |       172,446.045 ns | 52.2461 | 47.3633 | 47.3633 |  202753 B |
+| IntersectCombo_HashSetWithFrozenSet_Linq          | 10000  |       199,183.613 ns |     1,291.1504 ns |     1,078.1691 ns |       199,430.420 ns | 52.2461 | 47.6074 | 47.3633 |  202762 B |
+| IntersectCombo_HashSetWithFrozenSet_IntersectWith | 10000  |             5.117 ns |         0.0243 ns |         0.0228 ns |             5.124 ns |       - |       - |       - |         - |
+| IntersectCombo_FrozenSetWithHashSet               | 10000  |       105,038.913 ns |       727.5818 ns |       607.5638 ns |       104,967.456 ns | 85.3271 | 76.7822 | 76.7822 |  351294 B |
+| IntersectArrays_Stupid                            | 100000 | 1,088,766,326.667 ns | 6,744,119.4183 ns | 6,308,453.4883 ns | 1,089,487,500.000 ns |       - |       - |       - |     848 B |
+| IntersectArrays_Linq                              | 100000 |     2,649,177.812 ns |    12,936.3332 ns |    12,100.6541 ns |     2,651,615.234 ns | 54.6875 | 54.6875 | 54.6875 | 2173062 B |
+| IntersectArrays_WithHashSet                       | 100000 |     4,392,933.854 ns |    22,870.9291 ns |    21,393.4813 ns |     4,390,521.875 ns | 46.8750 | 46.8750 | 46.8750 | 2185492 B |
+| IntersectHashSets_Stupid                          | 100000 |     1,542,840.807 ns |    10,541.8530 ns |     9,860.8558 ns |     1,541,460.156 ns |       - |       - |       - |     161 B |
+| IntersectHashSets_Linq                            | 100000 |     2,052,055.649 ns |    19,747.4309 ns |    16,489.9992 ns |     2,048,663.281 ns | 74.2188 | 74.2188 | 74.2188 | 3129043 B |
+| IntersectHashSets_IntersectWith                   | 100000 |             5.650 ns |         0.0365 ns |         0.0305 ns |             5.644 ns |       - |       - |       - |         - |
+| IntersectFrozenSets_Stupid                        | 100000 |       385,897.174 ns |     1,434.8350 ns |     1,342.1455 ns |       385,900.098 ns |       - |       - |       - |     152 B |
+| IntersectFrozenSets_Linq                          | 100000 |     2,762,595.716 ns |    22,082.4815 ns |    20,655.9669 ns |     2,757,244.336 ns | 54.6875 | 54.6875 | 54.6875 | 2173091 B |
+| IntersectCombo_HashSetWithArray_Linq              | 100000 |     2,828,693.443 ns |    14,591.7171 ns |    12,935.1772 ns |     2,827,420.117 ns | 54.6875 | 54.6875 | 54.6875 | 2173100 B |
+| IntersectCombo_HashSetWithArray_IntersectWith     | 100000 |             5.616 ns |         0.0192 ns |         0.0160 ns |             5.617 ns |       - |       - |       - |         - |
+| IntersectCombo_ArrayWithHashSet                   | 100000 |     1,829,001.995 ns |     8,303.3287 ns |     7,360.6846 ns |     1,827,916.699 ns | 74.2188 | 74.2188 | 74.2188 | 3129034 B |
+| IntersectCombo_FrozenSetWithArray                 | 100000 |     2,743,993.978 ns |    17,404.3772 ns |    13,588.1929 ns |     2,748,783.008 ns | 54.6875 | 54.6875 | 54.6875 | 2173155 B |
+| IntersectCombo_ArrayWithFrozenSet                 | 100000 |     2,680,494.029 ns |    12,246.2643 ns |    10,855.9943 ns |     2,681,867.969 ns | 54.6875 | 54.6875 | 54.6875 | 2172998 B |
+| IntersectCombo_HashSetWithFrozenSet_Linq          | 100000 |     2,828,525.391 ns |    19,014.1985 ns |    16,855.5917 ns |     2,827,120.117 ns | 54.6875 | 54.6875 | 54.6875 | 2173132 B |
+| IntersectCombo_HashSetWithFrozenSet_IntersectWith | 100000 |             5.500 ns |         0.0274 ns |         0.0243 ns |             5.506 ns |       - |       - |       - |         - |
+| IntersectCombo_FrozenSetWithHashSet               | 100000 |     1,898,701.693 ns |    13,543.6458 ns |    12,668.7347 ns |     1,904,044.922 ns | 74.2188 | 74.2188 | 74.2188 | 3129034 B |
