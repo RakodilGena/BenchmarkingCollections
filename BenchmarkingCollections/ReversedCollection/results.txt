@@ -1,0 +1,30 @@
+Conclusion: stack gives advantage only after there's more than 10 elements in list. otherwise list is more preferable.
+
+| Method                      | Count | Mean         | Error      | StdDev     | Ratio | RatioSD | Gen0   | Gen1   | Allocated | Alloc Ratio |
+|---------------------------- |------ |-------------:|-----------:|-----------:|------:|--------:|-------:|-------:|----------:|------------:|
+| GetReversedCollection_List  | 2     |     13.33 ns |   0.310 ns |   0.612 ns |  1.00 |    0.00 | 0.0086 |      - |      72 B |        1.00 |
+| GetReversedCollection_Stack | 2     |     37.69 ns |   0.792 ns |   1.366 ns |  2.84 |    0.20 | 0.0220 |      - |     184 B |        2.56 |
+|                             |       |              |            |            |       |         |        |        |           |             |
+| GetReversedCollection_List  | 3     |     23.24 ns |   0.507 ns |   0.498 ns |  1.00 |    0.00 | 0.0086 |      - |      72 B |        1.00 |
+| GetReversedCollection_Stack | 3     |     39.93 ns |   0.824 ns |   1.443 ns |  1.73 |    0.11 | 0.0220 |      - |     184 B |        2.56 |
+|                             |       |              |            |            |       |         |        |        |           |             |
+| GetReversedCollection_List  | 4     |     31.98 ns |   0.679 ns |   0.727 ns |  1.00 |    0.00 | 0.0086 |      - |      72 B |        1.00 |
+| GetReversedCollection_Stack | 4     |     43.08 ns |   0.904 ns |   1.267 ns |  1.35 |    0.07 | 0.0220 |      - |     184 B |        2.56 |
+|                             |       |              |            |            |       |         |        |        |           |             |
+| GetReversedCollection_List  | 5     |     51.06 ns |   1.063 ns |   1.181 ns |  1.00 |    0.00 | 0.0153 |      - |     128 B |        1.00 |
+| GetReversedCollection_Stack | 5     |     63.85 ns |   1.294 ns |   3.100 ns |  1.25 |    0.06 | 0.0353 |      - |     296 B |        2.31 |
+|                             |       |              |            |            |       |         |        |        |           |             |
+| GetReversedCollection_List  | 10    |    104.73 ns |   0.631 ns |   0.559 ns |  1.00 |    0.00 | 0.0257 |      - |     216 B |        1.00 |
+| GetReversedCollection_Stack | 10    |     99.86 ns |   1.860 ns |   2.142 ns |  0.96 |    0.02 | 0.0564 |      - |     472 B |        2.19 |
+|                             |       |              |            |            |       |         |        |        |           |             |
+| GetReversedCollection_List  | 20    |    214.71 ns |   3.592 ns |   2.999 ns |  1.00 |    0.00 | 0.0439 |      - |     368 B |        1.00 |
+| GetReversedCollection_Stack | 20    |    154.62 ns |   3.114 ns |   8.093 ns |  0.74 |    0.05 | 0.0927 |      - |     776 B |        2.11 |
+|                             |       |              |            |            |       |         |        |        |           |             |
+| GetReversedCollection_List  | 50    |    554.16 ns |  11.039 ns |  15.111 ns |  1.00 |    0.00 | 0.0772 |      - |     648 B |        1.00 |
+| GetReversedCollection_Stack | 50    |    303.74 ns |   6.118 ns |  16.542 ns |  0.56 |    0.04 | 0.1593 |      - |    1336 B |        2.06 |
+|                             |       |              |            |            |       |         |        |        |           |             |
+| GetReversedCollection_List  | 100   |  1,162.87 ns |  22.898 ns |  27.258 ns |  1.00 |    0.00 | 0.1411 |      - |    1184 B |        1.00 |
+| GetReversedCollection_Stack | 100   |    568.83 ns |  11.418 ns |  28.856 ns |  0.49 |    0.02 | 0.2871 |      - |    2408 B |        2.03 |
+|                             |       |              |            |            |       |         |        |        |           |             |
+| GetReversedCollection_List  | 1000  | 28,798.39 ns | 311.828 ns | 291.684 ns |  1.00 |    0.00 | 1.0071 |      - |    8424 B |        1.00 |
+| GetReversedCollection_Stack | 1000  |  4,595.31 ns |  67.924 ns |  56.720 ns |  0.16 |    0.00 | 2.0142 | 0.0381 |   16888 B |        2.00 |

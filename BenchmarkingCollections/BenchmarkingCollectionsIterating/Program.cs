@@ -3,9 +3,9 @@
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 
-var summary = BenchmarkRunner.Run<BenchmarkingCollections.BenchmarkingCollections>();
+var summary = BenchmarkRunner.Run<BenchmarkingCollectionsIterating.BenchmarkingCollections>();
 
-namespace BenchmarkingCollections
+namespace BenchmarkingCollectionsIterating
 {
     [MemoryDiagnoser(true)]
     public class BenchmarkingCollections

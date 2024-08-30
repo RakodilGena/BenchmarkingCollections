@@ -10,6 +10,32 @@
 | BenchmarkConcatEnumerable | 10000       | 104,405,376.2 ns | 1,945,084.44 ns | 1,910,333.01 ns | 1000.0000 | 1000.0000 | 1000.0000 |    7026 KB |
 
 
+Job=.NET 8.0  Runtime=.NET 8.0
+
+| Method                           | RepeatCount | Mean              | StdDev           | Median            | Ratio  | Gen0      | Gen1      | Gen2      | Allocated | Alloc Ratio |
+|--------------------------------- |------------ |------------------:|-----------------:|------------------:|-------:|----------:|----------:|----------:|----------:|------------:|
+| BenchmarkAddToList               | 2           |          68.38 ns |         3.317 ns |          66.67 ns |   1.00 |    0.1175 |    0.0002 |         - |     984 B |        1.00 |
+| BenchmarkConcatEnumerableToList1 | 2           |          75.64 ns |         1.459 ns |          75.23 ns |   1.05 |    0.0975 |         - |         - |     816 B |        0.83 |
+| BenchmarkConcatEnumerableToList2 | 2           |         109.29 ns |         1.727 ns |         108.59 ns |   1.51 |    0.1004 |         - |         - |     840 B |        0.85 |
+|                                  |             |                   |                  |                   |        |           |           |           |           |             |
+| BenchmarkAddToList               | 10          |         372.26 ns |         7.778 ns |         370.18 ns |   1.00 |    0.7954 |         - |         - |    6656 B |        1.00 |
+| BenchmarkConcatEnumerableToList1 | 10          |         407.14 ns |         8.394 ns |         406.67 ns |   1.09 |    0.3500 |         - |         - |    2928 B |        0.44 |
+| BenchmarkConcatEnumerableToList2 | 10          |         420.47 ns |         9.217 ns |         419.48 ns |   1.13 |    0.3529 |         - |         - |    2952 B |        0.44 |
+|                                  |             |                   |                  |                   |        |           |           |           |           |             |
+| BenchmarkAddToList               | 100         |       2,909.80 ns |       144.187 ns |       2,836.85 ns |   1.00 |    6.1531 |    0.4387 |         - |   51528 B |        1.00 |
+| BenchmarkConcatEnumerableToList1 | 100         |       9,741.53 ns |        48.077 ns |       9,740.39 ns |   3.28 |    3.1738 |    0.0305 |         - |   26688 B |        0.52 |
+| BenchmarkConcatEnumerableToList2 | 100         |      10,143.90 ns |       192.747 ns |      10,089.21 ns |   3.47 |    3.1891 |         - |         - |   26712 B |        0.52 |
+|                                  |             |                   |                  |                   |        |           |           |           |           |             |
+| BenchmarkAddToList               | 1000        |      68,708.42 ns |       276.290 ns |      68,782.20 ns |   1.00 |   95.2148 |   95.2148 |   95.2148 |  410032 B |        1.00 |
+| BenchmarkConcatEnumerableToList1 | 1000        |     858,650.29 ns |     1,839.052 ns |     858,328.91 ns |  12.50 |   61.5234 |   61.5234 |   61.5234 |  264309 B |        0.64 |
+| BenchmarkConcatEnumerableToList2 | 1000        |     859,977.85 ns |     2,666.596 ns |     859,182.86 ns |  12.52 |   61.5234 |   61.5234 |   61.5234 |  264333 B |        0.64 |
+|                                  |             |                   |                  |                   |        |           |           |           |           |             |
+| BenchmarkAddToList               | 10000       |     789,064.35 ns |    62,591.344 ns |     766,731.01 ns |   1.00 | 1012.6953 | 1000.0000 | 1000.0000 | 6554395 B |        1.00 |
+| BenchmarkConcatEnumerableToList1 | 10000       | 104,518,008.73 ns | 4,395,787.433 ns | 101,890,880.00 ns | 127.02 |  400.0000 |  400.0000 |  400.0000 | 2640502 B |        0.40 |
+| BenchmarkConcatEnumerableToList2 | 10000       | 101,100,166.15 ns |   203,206.155 ns | 101,090,380.00 ns | 115.18 |  400.0000 |  400.0000 |  400.0000 | 2640526 B |        0.40 |
+
+
+
 | Method               | Runtime  | Mean     | StdDev  | Ratio | Gen0    | Gen1    | Gen2    | Allocated | Alloc Ratio |
 |--------------------- |--------- |---------:|--------:|------:|--------:|--------:|--------:|----------:|------------:|
 | BenchmarkLambda      | .NET 6.0 | 201.3 us | 1.70 us |  1.00 | 95.2148 | 95.2148 | 95.2148 | 644.09 KB |        1.00 |
